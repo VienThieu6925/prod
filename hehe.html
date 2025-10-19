@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>🌸  Nhung Bae 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #ff6b9a;
+    --deep: #6b1a4b;
+    --bg1: #fff0f6;
+    --card: #ffffffcc;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #ffe6f1 0%, #fff9fb 50%, #ffe0f7 100%);
+    overflow: hidden;
+  }
+
+  .stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: var(--deep);
+    padding: 20px;
+  }
+
+  h1 {
+    font-family: 'Parisienne', cursive;
+    font-size: 50px;
+    margin: 10px 0;
+    color: var(--deep);
+    animation: fadeInDown 1.5s ease forwards;
+  }
+
+  p {
+    font-size: 18px;
+    color: #5b2b4a;
+    margin-top: 0;
+    animation: fadeInUp 2s ease forwards;
+  }
+
+  .btn {
+    margin-top: 25px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    border: none;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(90deg, var(--pink), #d64b9b);
+    box-shadow: 0 6px 18px rgba(219, 84, 144, 0.25);
+    cursor: pointer;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(255,105,180,0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(255,105,180,0.6); }
+    100% { transform: scale(1); box-shadow: 0 0 15px rgba(255,105,180,0.4); }
+  }
+  @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px);} to {opacity:1; transform:translateY(0);} }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+  /* overlay modal */
+  .overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s ease;
+  }
+  .overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal {
+    width: 90%;
+    max-width: 720px;
+    background: linear-gradient(180deg,#fff,#fff0ff);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 30px 80px rgba(107,26,75,0.35);
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform .5s ease;
+    position: relative;
+  }
+  .overlay.open .modal {
+    transform: scale(1);
+  }
+
+  .modal img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 20px rgba(255,105,180,0.4);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .modal h2 {
+    font-family: 'Parisienne', cursive;
+    font-size: 42px;
+    color: var(--deep);
+  }
+
+  .modal p {
+    font-size: 17px;
+    color: #4a2a3f;
+    line-height: 1.6;
+  }
+
+  /* floating hearts */
+  .heart {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--pink);
+    transform: rotate(-45deg);
+    animation: floatUp linear forwards;
+    opacity: 0.8;
+  }
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    width: 16px; height: 16px;
+    background: var(--pink);
+    border-radius: 50%;
+  }
+  .heart::before { top: -8px; left: 0; }
+  .heart::after { top: 0; left: 8px; }
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1) rotate(-45deg); opacity: 1; }
+    100% { transform: translateY(-120vh) scale(0.8) rotate(-45deg); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <h1>🌷 Chúc mừng 20/10, Nhung dễ  🌷</h1>
+    <p>Hôm nay là ngày của phái đẹp — và cũng là dịp để anh gửi đến em một chút bất ngờ nhỏ 💕</p>
+    <button class="btn" id="openBtn">Mở lời chúc</button>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <img src="z7133450409710_84949f84c42c6a6afced3af3c94aabd2.jpg" alt="Nhung dễ thương">
+      <h2>Gửi đến Nhung 💌</h2>
+      <p>
+        Chúc em 20/10 thật tươi tắn và rạng rỡ — như nụ cười mà anh luôn nhớ.  
+        Chúc em luôn gặp nhiều điều tốt đẹp, bình yên và thành công trên hành trình của mình.  
+        Cảm ơn em đã luôn là nguồn năng lượng đáng yêu khiến mọi thứ trở nên nhẹ nhàng hơn 🌸
+      </p>
+      <p style="margin-top:14px;font-size:14px;color:#5b2b4a">— Từ Thiệu, người đồng hành của em 💖</p>
+    </div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    const openBtn = document.getElementById('openBtn');
+
+    openBtn.addEventListener('click', () => {
+      overlay.classList.add('open');
+      createHearts();
+    });
+
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) {
+        overlay.classList.remove('open');
+      }
+    });
+
+    // Tạo tim bay nhẹ nhàng
+    function createHearts() {
+      const colors = ['#ff99cc','#ff6b9a','#ffb6c1','#ff85a2','#ff5c8a'];
+      const numHearts = 25;
+      for (let i = 0; i < numHearts; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        const size = Math.random() * 12 + 12;
+        heart.style.width = heart.style.height = size + 'px';
+        heart.style.background = colors[Math.floor(Math.random()*colors.length)];
+        heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+        heart.style.opacity = (0.5 + Math.random() * 0.5).toFixed(2);
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 7000);
+      }
+    }
+  </script>
+</body>
+</html>
